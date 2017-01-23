@@ -1,0 +1,2 @@
+# LandingPage Template for WordPress
+
