@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="format-detection" content="address=no,email=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="http://bp-media.iaowd.com/wp-content/themes/bootpress-media/css/bootstrap.css">
     <link rel="stylesheet" href="http://bp-media.iaowd.com/wp-content/themes/bootpress-media/css/animate.css">
@@ -15,30 +15,44 @@
     <title><?php bloginfo('name'); ?></title>
 </head>
 
-<body>
-<div class="container-fluid">
-    <div class="row no-gutter">
-                <?php
-                // アイキャッチ画像を配置する
-                if ( has_post_thumbnail() ) :
-                    the_post_thumbnail( 'medium img-responsive' );
-                    else : ?>
-                    <figure>
-                        <img src="http://bootpress.co/media/wp-content/themes/bootpress-media/img/noimageLp.png" alt="<?php the_title(); ?>" class="img-responsive">
-                        <!-- アイキャッチ画像がないときに表示させる仮画像  -->
-                    </figure>
-                <?php endif; ?>
+<body class="lp lp01">
 
-            </div><!-- /.row -->
-            </div><!-- /.container -->
+  <div class="l-cover-justvertical verticalPadding-t-0 verticalPadding-b-0">
+      <div class="container-fluid" id="section00">
+          <div class="row no-gutter">
+
+              <div class="verticalMargin-t-0 verticalPadding-b-0">
+      <?php
+      // アイキャッチ画像を配置する
+      if ( has_post_thumbnail() ) :
+          the_post_thumbnail( 'medium img-responsive' );
+          else : ?>
+          <figure>
+            <img src="http://bp-media.iaowd.com/wp-content/themes/bootpress-media/img/noimageLp.png" alt="<?php the_title(); ?>" class="img-responsive">
+          </figure>
+      <?php endif; ?>
+      <div class="parent textLyer-box">
+        <div class="lyer textLyer-body">
+          <?php if(have_posts()): while(have_posts()): the_post(); ?>
+          <h1 class="text-center wht-text"><?php the_title(); ?></h1>
+  </div>
+  </div>
+
+
+              </div><!-- /.col-sm-12 -->
+
+          </div><!-- /.row -->
+      </div>
+  </div><!-- /.l-cover -->
+
+
 
 
     <article class="gryColorTone2nd">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 gryColor">
-                <?php if(have_posts()): while(have_posts()): the_post(); ?>
-                <h1 class="h1"><?php the_title(); ?></h1>
+                <?php remove_filter ('the_content', 'wpautop'); ?>
                 <?php the_content(); ?>
                 <?php endwhile; endif; ?>
                 </div>
